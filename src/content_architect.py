@@ -168,10 +168,10 @@ class ContentArchitect:
             f"{anchor['anti_animation']}."
         )
 
-        # 2. AUDIO PROMPT (Kesin Türkçe Direktifi & Süre Sınırı)
+        # 2. AUDIO PROMPT (Doğal İnsansı Akustik & Kesin Türkçe Direktifi)
         audio_chunk = (
-            f"A mature Turkish male documentary narrator with a deep, authoritative, resonant voice speaks clearly in native Turkish: \"{clean_dia}\". "
-            f"Flawless Turkish pronunciation, crystal clear studio recording, natural ambient environmental sound effects, zero English speech, no background music, no silence."
+            f"A native Turkish male narrator with a warm rich baritone voice, authentic natural human speech cadence and subtle breathing, speaking clearly in native Turkish: \"{clean_dia}\". "
+            f"High-fidelity broadcast studio condenser microphone recording, flawless native Turkish pronunciation, warm human vocal resonance with zero robotic artifacts, natural ambient environmental soundscape, no background music, no silence."
         )
 
         # Birleşik Prompt

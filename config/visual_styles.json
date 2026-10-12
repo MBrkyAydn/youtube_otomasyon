@@ -36,7 +36,7 @@
   },
   "audio_standards": {
     "turkish_narrator": {
-      "directive": "A mature Turkish male documentary narrator with a deep, authoritative, resonant voice speaks clearly in native Turkish: \"{dialogue}\". Flawless Turkish pronunciation, crystal clear studio recording, natural ambient environmental sound effects, zero English speech, no background music, no silence."
+      "directive": "A native Turkish male narrator with a warm rich baritone voice, authentic natural human speech cadence and subtle breathing, speaking clearly in native Turkish: \"{dialogue}\". High-fidelity broadcast studio condenser microphone recording, flawless native Turkish pronunciation, warm human vocal resonance with zero robotic artifacts, natural ambient environmental soundscape, no background music, no silence."
     },
     "max_words_per_clip": 12,
     "min_words_per_clip": 4,
