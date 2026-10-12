@@ -43,7 +43,7 @@ class ContentArchitect:
     def detect_style_preset(self, topic: str) -> str:
         """Konu başlığına göre en uygun görsel stil presetini belirler."""
         t_lower = topic.lower()
-        if any(w in t_lower for w in ["tarih", "imparatorluk", "roma", "osmanlı", "savaş", "antik", "yüzyıl", "firavun"]):
+        if any(w in t_lower for w in ["tarih", "imparatorluk", "roma", "osmanlı", "savaş", "antik", "yüzyıl", "firavun", "darius", "noxus"]):
             return "historical_documentary"
         elif any(w in t_lower for w in ["yapay zeka", "robot", "uzay", "kuantum", "teknoloji", "gelecek", "bilim", "fizik", "evren"]):
             return "science_technology"
@@ -84,6 +84,10 @@ class ContentArchitect:
                 subject = "A colossal ancient Egyptian jackal deity warrior, weathered obsidian and ornate golden ceremonial armor, glowing cyan ethereal eyes"
                 if not environment:
                     environment = "Endless sweeping golden desert dunes of Shurima, violent atmospheric sandstorm particles, ancient ruined sun disc monuments"
+            elif "darius" in t_lower or "noxus" in t_lower:
+                subject = "A battle-scarred imposing warrior general in heavy blackened steel armor, tattered crimson cape, short silver-streaked hair, holding a massive brutal two-handed battleaxe"
+                if not environment:
+                    environment = "A grim smoke-filled medieval battlefield littered with iron banners, burning embers floating through fog, overcast dark sky"
             elif "uzay" in t_lower or "gezegen" in t_lower:
                 subject = "The colossal celestial planet with swirling atmospheric clouds and glowing rings"
                 if not environment:
