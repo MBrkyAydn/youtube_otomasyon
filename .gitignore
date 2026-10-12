@@ -1,0 +1,62 @@
+# ===============================================================
+# Git Ignore - YouTube Otomasyon Sistemi
+# Gizli anahtarlar, kişisel veriler ve yerel çalışma çıktıları
+# ===============================================================
+
+# 1. Çevre Değişkenleri & Kimlik Doğrulama / Gizli Anahtarlar
+.env
+.env.*
+!.env.example
+config/client_secrets*.json
+!config/client_secrets.example.json
+config/*token*.json
+config/youtube_token.json
+AUTH_URL.txt
+
+# 2. Yerel Video Üretimleri & Proje Çalışma Dosyaları
+projects/
+ciktilar/
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.webm
+
+# Ses Dosyaları (Varsayılan fon müziği hariç tutulur)
+*.mp3
+*.wav
+*.aac
+*.flac
+!assets/music/ambient_calm.mp3
+
+# Görseller & Hata Ayıklama Ekran Görüntüleri
+*.png
+*.jpg
+*.jpeg
+*.gif
+!assets/**/*.png
+!assets/**/*.jpg
+
+# 3. Python Çıktıları & Sanal Ortamlar
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# 4. İşletim Sistemi & Editör Dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,22 @@
+{
+  "name": "Sinematik Gerçekçi & Felsefe Şablonu",
+  "description": "Google Flow (Imagen 3) için optimize edilmiş, sinematik ve atmosferik şablon.",
+  "styles": {
+    "cinematic_history": {
+      "prefix": "Cinematic 8k photograph, dark moody atmosphere, dramatic chiaroscuro lighting, highly detailed,",
+      "suffix": "masterpiece, depth of field, photorealistic, anamorphic lens, 35mm film grain, 8k resolution",
+      "aspect_ratio_tag": "--ar {aspect_ratio}"
+    },
+    "tech_ai": {
+      "prefix": "Futuristic cinematic scene, moody ambient lighting, subtle neon glow, hyper-detailed,",
+      "suffix": "concept art style, octane render, 8k resolution, cinematic composition, photorealistic textures",
+      "aspect_ratio_tag": "--ar {aspect_ratio}"
+    },
+    "minimal_stoic": {
+      "prefix": "Minimalist marble and shadow aesthetic, timeless historical atmosphere, dramatic sidelight,",
+      "suffix": "fine art photography, sharp focus, elegant composition, muted tones, 8k resolution",
+      "aspect_ratio_tag": "--ar {aspect_ratio}"
+    }
+  },
+  "default_style": "tech_ai"
+}

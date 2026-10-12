@@ -1,0 +1,51 @@
+{
+  "tts": {
+    "default_voice": "tr-TR-AhmetNeural",
+    "female_voice": "tr-TR-EmelNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "volume": "+0%"
+  },
+  "video": {
+    "fps": 30,
+    "background_music_volume": 0.15,
+    "zoom_factor": 1.15,
+    "fade_duration": 0.5,
+    "modes": {
+      "shorts": {
+        "width": 1080,
+        "height": 1920,
+        "aspect_ratio": "9:16",
+        "subtitle_style": {
+          "font_size": 42,
+          "primary_color": "&H00FFFFFF",
+          "secondary_color": "&H0000FFFF",
+          "outline_color": "&H00000000",
+          "back_color": "&H80000000",
+          "bold": true,
+          "alignment": 2,
+          "margin_v": 320
+        }
+      },
+      "long": {
+        "width": 1920,
+        "height": 1080,
+        "aspect_ratio": "16:9",
+        "subtitle_style": {
+          "font_size": 28,
+          "primary_color": "&H00FFFFFF",
+          "secondary_color": "&H0000FFFF",
+          "outline_color": "&H00000000",
+          "back_color": "&H80000000",
+          "bold": false,
+          "alignment": 2,
+          "margin_v": 60
+        }
+      }
+    }
+  },
+  "google_flow": {
+    "default_model": "Imagen 3",
+    "supported_aspect_ratios": ["9:16", "16:9", "1:1"]
+  }
+}
