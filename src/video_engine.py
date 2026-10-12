@@ -62,11 +62,19 @@ class VideoEngine:
             f"fps={fps},format=yuv420p"
         )
 
+        duration = self.get_clip_duration(input_clip_path)
+        audio_filters = ["aresample=48000"]
+        if duration > 0.4:
+            fade_dur = min(0.15, duration / 4)
+            audio_filters.append(f"afade=t=in:st=0:d={fade_dur:.2f}")
+            audio_filters.append(f"afade=t=out:st={duration - fade_dur:.2f}:d={fade_dur:.2f}")
+
         cmd = [
             self.ffmpeg_bin,
             "-y",
             "-i", str(input_clip_path),
             "-vf", filter_str,
+            "-af", ",".join(audio_filters),
             "-c:v", "libx264",
             "-preset", "veryfast",
             "-crf", "18",
@@ -121,12 +129,21 @@ class VideoEngine:
             "-f", "concat",
             "-safe", "0",
             "-i", concat_txt,
-            "-c", "copy",
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-ar", "48000",
+            "-ac", "2",
+            "-af", "aresample=async=1000",
             merged_raw
         ]
         res = subprocess.run(cmd_concat, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="ignore")
         if res.returncode != 0:
             raise RuntimeError(f"FFmpeg concat hatası: {res.stderr[-300:]}")
+
+        total_duration = self.get_clip_duration(merged_raw)
+        fade_out_start = max(0.0, total_duration - 1.5)
+        fade_out_dur = min(1.5, total_duration)
 
         # 2. Seslendirme (TTS), Müzik ve Altyazı Ekleme
         has_narration = narration_audio_path and os.path.exists(narration_audio_path)
@@ -158,21 +175,22 @@ class VideoEngine:
 
         if has_narration and has_music:
             filter_parts_a.append(
-                f"[0:a]volume=0.20[amb];"
-                f"[{narr_idx}:a]volume=1.05[spk];"
-                f"[{music_idx}:a]volume={bg_music_volume:.2f}[bg];"
-                f"[spk][amb][bg]amix=inputs=3:duration=first:dropout_transition=2[a_out]"
+                f"[0:a]volume=0.20,aresample=48000[amb];"
+                f"[{narr_idx}:a]volume=1.05,aresample=48000[spk];"
+                f"[{music_idx}:a]atrim=0:{total_duration:.2f},afade=t=in:st=0:d=1.0,afade=t=out:st={fade_out_start:.2f}:d={fade_out_dur:.2f},volume={bg_music_volume:.2f},aresample=48000[bg_loop];"
+                f"[spk][amb][bg_loop]amix=inputs=3:duration=first:dropout_transition=0:normalize=0[a_out]"
             )
         elif has_narration:
             filter_parts_a.append(
-                f"[0:a]volume=0.20[amb];"
-                f"[{narr_idx}:a]volume=1.05[spk];"
-                f"[spk][amb]amix=inputs=2:duration=first:dropout_transition=2[a_out]"
+                f"[0:a]volume=0.20,aresample=48000[amb];"
+                f"[{narr_idx}:a]volume=1.05,aresample=48000[spk];"
+                f"[spk][amb]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a_out]"
             )
         elif has_music:
             filter_parts_a.append(
-                f"[{music_idx}:a]volume={bg_music_volume:.2f}[bg];"
-                f"[0:a][bg]amix=inputs=2:duration=first:dropout_transition=2[a_out]"
+                f"[{music_idx}:a]atrim=0:{total_duration:.2f},afade=t=in:st=0:d=1.0,afade=t=out:st={fade_out_start:.2f}:d={fade_out_dur:.2f},volume={bg_music_volume:.2f},aresample=48000[bg_loop];"
+                f"[0:a]volume=1.0,aresample=48000[orig_audio];"
+                f"[orig_audio][bg_loop]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a_out]"
             )
 
         maps = []
