@@ -1,0 +1,45 @@
+{
+  "version": "2.0",
+  "anti_animation_negative_tokens": "ABSOLUTELY NO animation, NO 3D render, NO CGI, NO cartoon, NO anime, NO Disney/Pixar style, NO illustration, NO drawing, NO painting, NO artificial smoothing, NO video game graphic, NO plastic skin, NO fake textures, NO artificial gloss",
+  "presets": {
+    "wildlife_documentary": {
+      "name": "National Geographic / BBC Earth Vahşi Doğa Belgeseli",
+      "cinematography": "Live-action 35mm Arri Alexa 65 footage, anamorphic Cooke prime lenses, shallow depth of field, authentic BBC Earth and National Geographic 4K RAW wildlife cinematography",
+      "lighting": "natural golden hour African sunlight, authentic atmospheric dust haze, volumetric rim lighting, realistic daylight exposure",
+      "textures": "hyperrealistic weathered skin wrinkles, organic moisture and dirt particles, authentic anatomical weight, physically accurate water splashes and dust clouds",
+      "grading": "natural documentary color grading, rich organic earth tones, lifelike contrast without artificial saturation"
+    },
+    "historical_documentary": {
+      "name": "Tarih ve Medeniyet Sinematik Belgeseli",
+      "cinematography": "Live-action historical cinematography, 35mm film grain, anamorphic widescreen, master-shot composition, realistic period aesthetic",
+      "lighting": "dramatic chiaroscuro lighting, natural torchlight and low-angle sun, deep realistic shadows, authentic historical atmosphere",
+      "textures": "weathered stone, authentic woven textile fabrics, realistic aged metal and wood, cinematic environmental dust",
+      "grading": "moody desaturated tones, golden amber highlights, cinematic film contrast"
+    },
+    "science_technology": {
+      "name": "İleri Bilim ve Teknoloji Belgeseli",
+      "cinematography": "Live-action high-tech documentary footage, RED 8K cinema camera, razor-sharp optical clarity, precise macro focus",
+      "lighting": "clean directional laboratory and natural ambient lighting, subtle practical glow, high dynamic range",
+      "textures": "authentic mechanical and biological surfaces, realistic electron-microscope style macro dynamics, true physical reflections",
+      "grading": "pristine clinical colors, deep blacks, high visual fidelity"
+    }
+  },
+  "shot_types": {
+    "extreme_wide": "Extreme wide panoramic establishing shot showcasing the vast landscape and scale",
+    "wide_establishing": "Cinematic wide establishing shot capturing the full subject in its authentic environment",
+    "medium_tracking": "Medium tracking camera shot smoothly following the subject's physical motion",
+    "close_up": "Intense cinematic close-up focusing with sharp optical depth on key physical features",
+    "macro_extreme": "Extreme macro close-up with razor-thin depth of field revealing intricate physical textures and dynamic fluid movement",
+    "over_the_shoulder": "Dynamic over-the-shoulder action perspective framing the real-time physical mechanism",
+    "low_angle_hero": "Dramatic low-angle cinematic hero shot emphasizing majestic scale, power, and depth",
+    "slow_pull_back": "Slow epic pull-back camera motion expanding from intimate detail to boundless horizon"
+  },
+  "audio_standards": {
+    "turkish_narrator": {
+      "directive": "A mature Turkish male documentary narrator with a deep, authoritative, resonant voice speaks clearly in native Turkish: \"{dialogue}\". Flawless Turkish pronunciation, crystal clear studio recording, natural ambient environmental sound effects, zero English speech, no background music, no silence."
+    },
+    "max_words_per_clip": 12,
+    "min_words_per_clip": 4,
+    "ideal_words_per_clip": 8
+  }
+}

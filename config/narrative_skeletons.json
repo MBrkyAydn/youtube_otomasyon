@@ -1,0 +1,125 @@
+{
+  "version": "2.0",
+  "skeletons": {
+    "shorts": {
+      "name": "YouTube Shorts Viral Belgesel İskeleti",
+      "target_scenes": 5,
+      "max_scenes": 6,
+      "estimated_duration_sec": 45,
+      "structure": [
+        {
+          "scene_idx": 1,
+          "phase": "hook",
+          "name": "Kanca (The Hook)",
+          "goal": "İzleyiciyi ilk 2 saniyede durduran ters köşe soru veya şok edici gerçek.",
+          "camera_shot": "Extreme wide establishing shot transitioning to rapid push-in",
+          "camera_motion": "rapid cinematic push-in",
+          "pacing": "high_energy",
+          "max_words": 10,
+          "dialogue_example": "Fillerin suyu burnuyla içtiğini sanıyorsanız, tamamen yanılıyorsunuz."
+        },
+        {
+          "scene_idx": 2,
+          "phase": "misconception",
+          "name": "Yanılgı ve Gizem (The Misconception)",
+          "goal": "Bilinen yanlışın ortaya konması ve gerçek mekanizmanın merak uyandırması.",
+          "camera_shot": "Medium tracking shot following the subject's movement",
+          "camera_motion": "smooth camera pan across the scene",
+          "pacing": "curious_steady",
+          "max_words": 11,
+          "dialogue_example": "Eğer doğrudan hortumla içselerdi, boğulurlardı. Çünkü hortum akciğerlere bağlıdır."
+        },
+        {
+          "scene_idx": 3,
+          "phase": "mechanism",
+          "name": "Gizli Mekanizma (The Secret Mechanism)",
+          "goal": "Olayın anatomik ve bilimsel sırrının mikro/makro düzeyde gösterilmesi.",
+          "camera_shot": "Extreme macro close-up focus on the exact anatomical mechanism",
+          "camera_motion": "macro focus pull with slow forward drift",
+          "pacing": "focused_scientific",
+          "max_words": 12,
+          "dialogue_example": "Hortum 40 bin kastan oluşur ve suyu bir pipet gibi içine çeker."
+        },
+        {
+          "scene_idx": 4,
+          "phase": "climax",
+          "name": "Zirve Aksiyonu (The Climax Action)",
+          "goal": "Suyun veya olayın ağza aktarıldığı asıl anın canlı ve gerçekçi gösterimi.",
+          "camera_shot": "Over-the-shoulder medium action shot showing dynamic fluid motion",
+          "camera_motion": "cinematic tracking shot with dynamic slow motion",
+          "pacing": "climax_impact",
+          "max_words": 10,
+          "dialogue_example": "Sonra hortumu kıvırıp sekiz litre suyu doğrudan ağızlarına boşaltırlar."
+        },
+        {
+          "scene_idx": 5,
+          "phase": "resolution",
+          "name": "Büyük Kapanış (The Mind-Blowing Takeaway)",
+          "goal": "Akılda kalıcı son cümle, felsefi özet ve merak uyandıran kapanış.",
+          "camera_shot": "Epic low-angle wide cinematic pull back with golden hour rim lighting",
+          "camera_motion": "epic wide cinematic pull back",
+          "pacing": "awe_inspiring",
+          "max_words": 10,
+          "dialogue_example": "Yani hortum bir bardaktır; doğanın en kusursuz su taşıma aracı."
+        }
+      ]
+    },
+    "long_documentary": {
+      "name": "Uzun Belgesel Epik Bölüm İskeleti (10-12 Dakika)",
+      "target_scenes": 70,
+      "min_scenes": 60,
+      "max_scenes": 75,
+      "estimated_duration_sec": 650,
+      "chapters": [
+        {
+          "chapter_id": 1,
+          "title": "Bölüm 1: Epik Giriş ve Büyük Gizem",
+          "scene_range": [1, 8],
+          "tone": "gizemli, görkemli, merak uyandırıcı",
+          "shot_palette": ["epic drone wide shot", "slow tracking shot", "dramatic low angle"],
+          "narrative_focus": "Konunun veya canlının tanıtılması, doğadaki yeri ve cevaplanacak büyük soru."
+        },
+        {
+          "chapter_id": 2,
+          "title": "Bölüm 2: Tarihsel ve Evrimsel Kökenler",
+          "scene_range": [9, 22],
+          "tone": "tarihsel, derin, evrimsel",
+          "shot_palette": ["atmospheric wide landscape", "slow panning shot", "medium profile shot"],
+          "narrative_focus": "Milyonlarca yıllık evrimsel adaptasyon, geçmiş zorluklar ve hayatta kalma mirası."
+        },
+        {
+          "chapter_id": 3,
+          "title": "Bölüm 3: Çekirdek Bilimsel Mekanizma ve Biyoloji",
+          "scene_range": [23, 40],
+          "tone": "bilimsel, detaylı, büyüleyici",
+          "shot_palette": ["macro extreme close-up", "slow motion fluid dynamics", "detailed anatomical angle"],
+          "narrative_focus": "Fiziksel dinamikler, iç organ ve kas koordinasyonu, mikroskobik mucizeler."
+        },
+        {
+          "chapter_id": 4,
+          "title": "Bölüm 4: Sıra Dışı Olaylar ve Hayatta Kalma Mücadeleleri",
+          "scene_range": [41, 55],
+          "tone": "gerilimli, dramatik, hayatta kalma",
+          "shot_palette": ["handheld-style tracking", "harsh lighting profile", "dust storm medium shot"],
+          "narrative_focus": "Zorlu iklim koşulları, kuraklık, yırtıcılar ve olağanüstü dayanıklılık örnekleri."
+        },
+        {
+          "chapter_id": 5,
+          "title": "Bölüm 5: Ekolojik Denge ve Ekosisteme Etkisi",
+          "scene_range": [56, 65],
+          "tone": "bilge, birbiriyle bağlantılı, aydınlatıcı",
+          "shot_palette": ["high-angle aerial shot", "environmental interaction medium shot", "sunset wide angle"],
+          "narrative_focus": "Bu mekanizmanın diğer canlılara ve gezegene sağladığı hayati faydalar."
+        },
+        {
+          "chapter_id": 6,
+          "title": "Bölüm 6: Büyük Final ve Felsefi Kapanış",
+          "scene_range": [66, 70],
+          "tone": "epik, felsefi, akılda kalıcı",
+          "shot_palette": ["epic low-angle silhouette", "slow cinematic pull back", "endless horizon shot"],
+          "narrative_focus": "Evrensel ders, doğanın kusursuz mühendisliği ve izleyiciyi etkileyen nihai son söz."
+        }
+      ]
+    }
+  }
+}

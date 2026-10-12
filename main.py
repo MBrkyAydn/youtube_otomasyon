@@ -130,11 +130,21 @@ def cmd_create(args):
     else:
         scenes = default_scenes
 
+    style = getattr(args, "style", None)
+    if style == "auto":
+        style = None
+
+    target_scenes = getattr(args, "scenes", 0)
+    if not target_scenes or target_scenes <= 0:
+        target_scenes = 5 if mode == "shorts" else 70
+
     project = pg.create_project(
         project_name=name,
         title=topic,
         scenes=scenes,
-        mode=mode
+        mode=mode,
+        style_preset=style,
+        target_scenes=target_scenes
     )
 
     print("\n" + "=" * 65)
@@ -368,6 +378,8 @@ def main():
     p_create.add_argument("--topic", type=str, help="Video konusu")
     p_create.add_argument("--script", type=str, help="Senaryo metin dosyası (örn: senaryo.txt)")
     p_create.add_argument("--mode", type=str, choices=["shorts", "long"], default="shorts", help="Shorts (9:16) veya Long (16:9)")
+    p_create.add_argument("--style", type=str, choices=["auto", "wildlife_documentary", "historical_documentary", "science_technology"], default="auto", help="Görsel sinematografi stili")
+    p_create.add_argument("--scenes", type=int, default=0, help="Hedef sahne sayısı (Uzun video için varsayılan 70)")
 
     # flow
     p_flow = subparsers.add_parser("flow", help="Google Flow üzerinden klipleri otomatik üret ve indir")
@@ -388,6 +400,8 @@ def main():
     p_auto.add_argument("--topic", type=str, help="Video konusu")
     p_auto.add_argument("--script", type=str, help="Senaryo metin dosyası (örn: senaryo.txt)")
     p_auto.add_argument("--mode", type=str, choices=["shorts", "long"], default="shorts", help="Shorts (9:16) veya Long (16:9)")
+    p_auto.add_argument("--style", type=str, choices=["auto", "wildlife_documentary", "historical_documentary", "science_technology"], default="auto", help="Görsel sinematografi stili")
+    p_auto.add_argument("--scenes", type=int, default=0, help="Hedef sahne sayısı (Uzun video için varsayılan 70)")
     p_auto.add_argument("--upload", action="store_true", help="Montaj sonrası otomatik YouTube'a yüklensin mi?")
     p_auto.add_argument("--privacy", type=str, choices=["public", "unlisted", "private"], default="unlisted", help="Gizlilik durumu")
 
