@@ -80,6 +80,10 @@ class ContentArchitect:
                 subject = "A majestic mature wild male lion with thick dark mane and muscular build"
                 if not environment:
                     environment = "Golden African grassland plains during late afternoon sunlight"
+            elif "nasus" in t_lower or "shurima" in t_lower:
+                subject = "A colossal ancient Egyptian jackal deity warrior, weathered obsidian and ornate golden ceremonial armor, glowing cyan ethereal eyes"
+                if not environment:
+                    environment = "Endless sweeping golden desert dunes of Shurima, violent atmospheric sandstorm particles, ancient ruined sun disc monuments"
             elif "uzay" in t_lower or "gezegen" in t_lower:
                 subject = "The colossal celestial planet with swirling atmospheric clouds and glowing rings"
                 if not environment:
@@ -178,13 +182,14 @@ class ContentArchitect:
         """Metnin temiz bir İngilizce görsel prompt olup olmadığını denetler."""
         if not text or len(text.strip()) < 5:
             return False
-        # Türkçe karakterler veya genel Türkçe kelimeler varsa İngilizce değildir
+        # Türkçe özel karakterler
         turkish_chars = set("çğıöşüÇĞİÖŞÜ")
         if any(c in turkish_chars for c in text):
             return False
-        turkish_words = ["bir", "ve", "ile", "için", "nasıl", "gibi", "suyu", "hortum", "sahne", "görsel", "cinematic detailed shot"]
-        text_lower = text.lower()
-        if any(w in text_lower for w in turkish_words):
+        # Tam kelime eşleşmesi (whole word match)
+        turkish_words = {"bir", "ve", "ile", "için", "nasıl", "gibi", "suyu", "hortum", "sahne", "görsel"}
+        words_in_text = set(re.findall(r'\b\w+\b', text.lower()))
+        if turkish_words.intersection(words_in_text):
             return False
         return True
 
@@ -229,7 +234,7 @@ class ContentArchitect:
                 motion = default_actions[idx][1]
 
             # Süre optimizasyonu (Max 12 kelime)
-            dialogue, _ = self.optimize_dialogue_for_clip_duration(dialogue, max_words=stage_meta.get("max_words", 11))
+            dialogue, _ = self.optimize_dialogue_for_clip_duration(dialogue, max_words=12)
 
             flow_prompt = self.format_prompt(
                 action=action,
